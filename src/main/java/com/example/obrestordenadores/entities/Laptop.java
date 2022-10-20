@@ -1,15 +1,20 @@
 package com.example.obrestordenadores.entities;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
 @Entity
 
 @Table(name="laptops")
+@ApiModel("Un computador portátil o laptop es un equipo personal que puede ser transportado fácilmente.")
 public class Laptop {
 
     // Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty("Clave ficticia autoincremental tipo Long")
     private Long id;
     private String model;
     private String creator;

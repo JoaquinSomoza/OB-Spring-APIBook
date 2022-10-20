@@ -5,7 +5,10 @@ import com.example.obrestordenadores.repository.LaptopRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+//averiguar que es ENABLEWEBMVC
+@EnableWebMvc
 @SpringBootApplication
 public class ObRestOrdenadoresApplication {
 

@@ -2,6 +2,9 @@ package com.example.obrestordenadores.controller;
 
 import com.example.obrestordenadores.entities.Laptop;
 import com.example.obrestordenadores.repository.LaptopRepository;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +18,8 @@ import java.util.Optional;
 public class LaptopController {
 
     // Permite mostrar mensaje en consola per a traves de Log.
-    private final org.slf4j.Logger log = LoggerFactory.getLogger(LaptopController.class);
+    private final Logger log = LoggerFactory.getLogger(LaptopController.class);
+
 
 
 
@@ -35,7 +39,8 @@ public class LaptopController {
 
     // Devuelve un objeto diferenciado por su Id.
     @GetMapping("/api/laptops/{id}")
-    public ResponseEntity<Laptop> findOneById(@PathVariable Long id){
+    @ApiOperation("Buscar un libro por clave primaria id Long")
+    public ResponseEntity<Laptop> findOneById(@ApiParam("Clave primaria tipo Long")@PathVariable Long id){
         Optional<Laptop> laptOpt = laptopRepository.findById(id);
         if(laptOpt.isPresent())
             return ResponseEntity.ok(laptOpt.get());
@@ -44,7 +49,7 @@ public class LaptopController {
     }
 
     // Ejercicio 3 sessiones 4, 5 y 6 que luego se mejora
-    /*@PostMapping("/api/laptops")
+    /*@PostMapping("/api/laptops/create")
     public Laptop create(@RequestBody Laptop laptop){
         return laptopRepository.save(laptop);
     }*/
