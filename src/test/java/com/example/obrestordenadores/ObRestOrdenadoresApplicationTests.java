@@ -8,6 +8,10 @@ class ObRestOrdenadoresApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// Ver info del sistema.
+		System.getenv().forEach(
+				(key, value)-> System.out.println(key + " " + value)
+		);
 	}
 
 }
